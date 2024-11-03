@@ -9,9 +9,14 @@
 
 ## Abstract
 
-As the size of chemical compounds datasets continues to expand, the need for both efficient and precise search methods has become increasingly evident. Traditional search techniques, while widely used, face significant challenges in terms of memory consumption and computational efficiency, particularly when dealing with large-scale chemical compounds datasets. This issue is particularly evident with chemical compounds such as PFAS, which have become subject to tighter regulations owing to growing concerns regarding their environmental and health impacts.
-
-To address these challenges, this study proposes an efficient chemical compounds search method using the Learned Bloom Filter (LBF), a combination of machine learning models and the traditional Bloom Filter (BF). LBF reduces unnecessary memory consumption through model-based predictions, improving overall performance. Our study evaluates the effectiveness of LBF by comparing it with standard BF. The experimental results reveal that LBF significantly improves spatial efficiency and reduces false positive rates, all while maintaining a high level of search accuracy.
+As compound data volumes grow, efficient and accurate search methods are increasingly required. 
+For compounds like PFAS, which face stricter regulations due to environmental and health concerns, rapid and precise search is essential. 
+Conventional structure-based algorithms and fingerprint-based similarity searches face limitations in memory usage and computational time with large datasets. 
+While Bloom Filter (BF) offers efficient search capabilities, it struggles with increased memory consumption as data scales.
+To address this, we propose an efficient compound search method using a Learned Bloom Filter (LBF), combining machine learning with BF. 
+Introduced by Kraska et al., LBF reduces unnecessary memory usage through model-based predictions, enhancing space efficiency while maintaining accuracy. 
+By learning complex chemical structure patterns, LBF minimizes false positives and achieves high-precision search with lower memory consumption. 
+Comparative experiments in Section \ref{sec4} show that LBF significantly reduces memory usage while maintaining accuracy, highlighting its potential in chemical safety assessments and early-stage drug screening.
 
 ## Introduction
 
@@ -22,7 +27,7 @@ This repository contains the code and data for reproducing the experiments in ou
 ## Contents
 
 - **[Paper (PDF)](link-to-your-paper.pdf)**: The full paper detailing our methodology and results.
-- **Code**: Implementation of the Learned Bloom Filter using a Recurrent Neural Network (RNN) and comparison with the standard Bloom Filter.
+- **Code**: Implementation of the Learned Bloom Filter for Chemical compounds
 - **Datasets**: The datasets used in the experiments, including PFAS and PCBA datasets.
 - **Figures and Tables**: Visual representations of the experimental results.
 
@@ -71,50 +76,21 @@ Replace the `--dataset` parameter with `PCBA` to run experiments on the PCBA dat
 - `--epochs`: Number of training epochs.
 - `--bf_fp_prob`: Desired false positive probability for the Bloom Filter.
 
-## Results
-
-The results of the experiments, including figures and tables, are saved in the `results` directory. Key findings include:
-
-- **LBF significantly reduces memory usage** compared to standard BF while maintaining search accuracy.
-- **Using DeepSMILES as a feature representation** enhances the performance of LBF.
-
-## Figures
-
-### Figure 1: PFAS and Non-PFAS Structures
-
-*Figure 1: Chemical structures of PFAS and non-PFAS compounds.*
-
-### Figure 2: Architecture Comparison between BF and LBF
-
-*Figure 2: Comparison of the architecture between traditional Bloom Filter and Learned Bloom Filter.*
-
-### Figure 3: FPR vs. Memory Usage
-
-*Figure 3: Relationship between False Positive Rate (FPR) and memory usage for BF and LBF.*
-
-### Figure 4: Effect of Feature Representation on LBF Performance
-
-*Figure 4: Comparison of LBF performance using SMILES and DeepSMILES representations.*
 
 ## Citation
 
 If you use this code or datasets in your research, please cite our paper:
 
 ```bibtex
-@article{nishida2023efficient,
+@article{XXX,
   title={Efficient Chemical Compounds Search Using Learned Bloom Filter},
   author={Nishida, Ken and Hayashi, Katsuhiko and Kamigaito, Hidetaka and Shindo, Hiroyuki},
-  journal={Journal of Chemical Informatics},
-  year={2023},
+  year={XXX},
   volume={XX},
   number={X},
   pages={XX--XX}
 }
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
@@ -134,48 +110,6 @@ For any questions or inquiries, please contact:
 2. Medina et al., "Bloom Filter Molecules: Fast Chemical Similarity Search Using Bloom Filters", 2023.
 3. Weininger, D., "SMILES, a chemical language and information system. 1. Introduction to methodology and encoding rules", 1988.
 4. O'Boyle, N.M., "Towards a Universal SMILES Representation - A Standard Method to Generate Canonical SMILES Based on the InChI", 2012.
-
-## Supplementary Information
-
-### Equations
-
-#### Equation 1: Insertion into Bloom Filter
-
-\[
-B[h_{i}(x)] = 1, \quad orall i = 1, 2, ..., k
-\]
-
-#### Equation 2: Optimal Bit Array Length
-
-\[
-m = -\frac{n \ln \epsilon}{(\ln 2)^2}
-\]
-
-#### Equation 3: Optimal Number of Hash Functions
-
-\[
-k = \frac{m}{n} \ln 2
-\]
-
-#### Equation 4: Binary Cross Entropy Loss
-
-\[
-\text{BCE Loss} = -\frac{1}{N} \sum_{i=1}^{N} \left[ y_i \log(\hat{y}_i) + (1 - y_i) \log(1 - \hat{y}_i) \right]
-\]
-
-#### Equation 5: False Positive Rate
-
-\[
-\text{FPR} = \frac{\text{FP}}{\text{FP} + \text{TN}}
-\]
-
-#### Equation 6: Total Memory Usage of LBF
-
-\[
-S_{LBF} = S_{RNN} + S_{BF}
-\]
-
-### Datasets Description
 
 - **PFAS Dataset**: Contains SMILES representations of per- and polyfluoroalkyl substances, known for their persistence in the environment.
 - **PCBA Dataset**: PubChem BioAssay dataset containing biological activity data for various molecules.
