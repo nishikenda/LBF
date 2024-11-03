@@ -100,9 +100,7 @@ We would like to thank all contributors and the community for their support.
 
 For any questions or inquiries, please contact:
 
-- **Ken Nishida**: [kenmankita@eis.hokudai.ac.jp](mailto:ken.nishida@example.com)
-
-**Note**: Please ensure to replace placeholders like `link-to-your-paper.pdf`, `ken.nishida@example.com`, and any other placeholders with actual information relevant to your repository.
+- **Ken Nishida**: [kenmankita@eis.hokudai.ac.jp](mailto:kenmankita@eis.hokudai.ac.jp)
 
 ## References
 
